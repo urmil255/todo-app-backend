@@ -1,6 +1,6 @@
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = env("mysql://root:123456@localhost:3381/todo_db")
 }
 
 generator client {
@@ -12,5 +12,6 @@ model Task {
   title     String
   color     String
   completed Boolean  @default(false)
-
+  createdAt DateTime @default(now())
 }
+
